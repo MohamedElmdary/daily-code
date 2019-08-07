@@ -33,6 +33,7 @@ ul {
 
   /* start sidebar code */
   > aside {
+    direction: rtl;
     position: fixed;
     top: 0;
     left: 0;
@@ -43,21 +44,25 @@ ul {
     border-bottom-right-radius: 2rem;
     transition: transform $duration linear;
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 6rem;
     // transform: translate3d(-100%, 0, 0);
-    /* overflow-x: hidden;
+
+    overflow-x: hidden;
     overflow-y: auto;
     &::-webkit-scrollbar {
       width: 1rem;
     }
     &::-webkit-scrollbar-track {
-      background-color: darken($sidenav-bg, 3);
+      background-color: darken($sidenav-bg, 5);
     }
     &::-webkit-scrollbar-thumb {
       background-color: $white;
-    } */
+    }
 
-    > div {
+    > * {
+      direction: ltr;
+    }
+    > div.profile {
       color: $white;
       text-align: center;
       margin-bottom: 5rem;
@@ -96,11 +101,9 @@ ul {
     }
 
     > nav {
-      direction: rtl;
       padding: 0 3rem;
       color: $white;
       ul {
-        direction: ltr;
         li {
           padding: 1.5rem;
           border-radius: 3rem;
@@ -125,7 +128,7 @@ ul {
               color: $sidenav-bg;
               padding: 0.3rem 0.7rem;
               border-radius: 1.5rem;
-              margin-left: 0.5rem;
+              margin-left: 0.1rem;
             }
           }
 
@@ -176,6 +179,13 @@ ul {
           }
         }
       }
+    }
+
+    > div.bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
     }
   }
   /* end sidebar code */
