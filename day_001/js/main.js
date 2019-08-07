@@ -1,13 +1,17 @@
 'use strict';
 
-(function(d, w) {
-  const $ = d.querySelector.bind(d);
-
-  /* start fix navbar bottom */
+function sidenavFooter($) {
   const { offsetHeight, scrollHeight } = $('#dashboard > aside');
   const bottom = $('#dashboard .bottom');
-  bottom.style.top = `calc(${
-    scrollHeight && scrollHeight > offsetHeight ? scrollHeight : offsetHeight
-  }px - 5rem)`;
-  /* end fix navbar bottom */
-})(document, window);
+  const h = (scrollHeight || 0) > offsetHeight ? scrollHeight : offsetHeight;
+  bottom.style.top = `calc(${h - bottom.offsetHeight}px
+     - 3rem)`;
+}
+
+function main() {
+  const $ = document.querySelector.bind(document);
+
+  sidenavFooter($);
+}
+
+window.onload = main;

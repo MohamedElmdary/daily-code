@@ -1,0 +1,197 @@
+@mixin sidenav {
+  direction: rtl;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 24rem;
+  background-color: $sidenav-bg;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  transition: transform $duration linear;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  // transform: translate3d(-100%, 0, 0);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $white;
+    border-radius: 2em;
+    visibility: hidden;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+  }
+
+  > * {
+    direction: ltr;
+  }
+  > div.profile {
+    color: $white;
+    text-align: center;
+    margin-bottom: 5rem;
+    h1 {
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-bottom: 5rem;
+    }
+    > div:first-of-type {
+      display: inline-block;
+      height: 76px;
+      width: 76px;
+      padding: 3px;
+      border-radius: 50%;
+      background: $white;
+      margin-bottom: 0.7rem;
+      > div {
+        height: 70px;
+        width: 70px;
+        overflow: hidden;
+        background-image: url(https://images.pexels.com/photos/1130623/pexels-photo-1130623.jpeg?cs=srgb&dl=adorable-adult-beautiful-1130623.jpg&fm=jpg);
+        background-size: cover;
+        border-radius: 50%;
+      }
+    }
+    > div:last-of-type {
+      h3 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  > nav {
+    padding: 0 3rem;
+    color: $white;
+    margin-bottom: 10rem;
+    ul {
+      li {
+        padding: 1.5rem;
+        border-radius: 3rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        transition: background-color $duration linear, color $duration linear;
+        i {
+          font-size: 1.3rem;
+          padding-right: 1rem;
+          position: relative;
+          top: 2px;
+        }
+        p {
+          font-size: 1.3rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          span {
+            transition: background-color $duration linear,
+              color $duration linear;
+            background-color: $white;
+            color: $sidenav-bg;
+            padding: 0.3rem 0.7rem;
+            border-radius: 1.5rem;
+            margin-left: 0.1rem;
+          }
+        }
+
+        .close-circle {
+          transition: opacity $duration linear;
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          top: -2rem;
+          right: -3rem;
+          background-color: $white;
+          height: calc(100% + 4rem);
+          width: 5rem;
+          &::after,
+          &::before {
+            height: 2rem;
+            position: absolute;
+            content: '';
+            top: 0;
+            right: 0;
+            width: 5rem;
+            background-color: $sidenav-bg;
+            border-bottom-right-radius: 3rem;
+          }
+          &::before {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 3rem;
+            top: auto;
+            bottom: 0;
+          }
+        }
+
+        &:hover,
+        &.active {
+          color: $sidenav-bg;
+          background-color: $white;
+          p span {
+            background-color: $sidenav-bg;
+            color: $white;
+          }
+        }
+
+        &.active {
+          .close-circle {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  > div.bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: $white;
+    > div:first-of-type {
+      margin-bottom: 3rem;
+      a {
+        outline: none;
+        text-decoration: none;
+        color: $white !important;
+        display: inline-flex;
+        justify-content: center;
+        transition: color $duration linear, background-color $duration linear;
+        padding: 1.5rem 3rem;
+        border-radius: 2.7rem;
+        i {
+          font-size: 1.7rem;
+          padding-right: 1rem;
+        }
+        p {
+          font-size: 1.3rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+        &:hover {
+          color: $sidenav-bg !important;
+          background-color: $white;
+        }
+      }
+    }
+    > div:last-of-type {
+      color: $dark-white;
+      font-size: 1.2rem;
+    }
+  }
+}
