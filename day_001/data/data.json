@@ -1,1 +1,24 @@
-{}
+{
+  "links": [
+    {
+      "icon": "fas fa-chart-pie",
+      "name": "overview"
+    },
+    {
+      "icon": "fas fa-chart-pie",
+      "name": "overview"
+    },
+    {
+      "icon": "fas fa-chart-pie",
+      "name": "overview"
+    },
+    {
+      "icon": "fas fa-chart-pie",
+      "name": "overview"
+    },
+    {
+      "icon": "fas fa-chart-pie",
+      "name": "overview"
+    }
+  ]
+}

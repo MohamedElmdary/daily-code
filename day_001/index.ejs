@@ -5,9 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Day | 001</title>
-    <link rel="stylesheet" href="./scss/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <section id="dashboard">
+      <aside>
+        <div>
+          <h1>FAN Analysis</h1>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <h3>Cathy Murray</h3>
+            <p>ID:5768439</p>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <% links.forEach((link, i) => { %>
+            <li class="<%= i === 0 ? 'active' : '' %>">
+              <i class="<%= link.icon %>"></i>
+              <span><%= link.name %></span>
+            </li>
+            <% }) %>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        content
+      </main>
+    </section>
+    <script src="https://kit.fontawesome.com/1de73eac06.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
