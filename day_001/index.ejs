@@ -25,7 +25,12 @@
             <% links.forEach((link, i) => { %>
             <li class="<%= i === 0 ? 'active' : '' %>">
               <i class="<%= link.icon %>"></i>
-              <span><%= link.name %></span>
+              <p>
+                <%= link.name %> <% if (i === links.length - 1) { %>
+                <span>106</span>
+                <% } %>
+              </p>
+              <span class="close-circle"></span>
             </li>
             <% }) %>
           </ul>

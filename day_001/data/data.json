@@ -5,20 +5,20 @@
       "name": "overview"
     },
     {
-      "icon": "fas fa-chart-pie",
-      "name": "overview"
+      "icon": "fas fa-user-alt",
+      "name": "fans data"
     },
     {
-      "icon": "fas fa-chart-pie",
-      "name": "overview"
+      "icon": "fas fa-money-check-alt",
+      "name": "income"
     },
     {
-      "icon": "fas fa-chart-pie",
-      "name": "overview"
+      "icon": "far fa-image",
+      "name": "works"
     },
     {
-      "icon": "fas fa-chart-pie",
-      "name": "overview"
+      "icon": "far fa-comment-dots",
+      "name": "messages"
     }
   ]
 }
