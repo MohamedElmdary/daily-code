@@ -32,6 +32,7 @@
       }
     }
     #chart-container {
+      display: inline-block;
       overflow: auto;
       @include nicescroll;
       height: 350px;
@@ -54,9 +55,14 @@
         left: 13px;
       }
       .y-axis {
-        top: calc(100% - 33px);
-        left: 66px;
-        width: 445px;
+        top: calc(100% - 30px);
+        left: 77px;
+        width: 436px;
+        height: 32px;
+
+        > p {
+          transform: rotate(-90deg);
+        }
       }
     }
   }
@@ -67,6 +73,10 @@
       > div {
         display: inline-block;
         position: relative;
+        min-height: 250px;
+        min-width: 250px;
+        overflow: auto;
+        @include nicescroll;
         > p {
           position: absolute;
           top: 50%;

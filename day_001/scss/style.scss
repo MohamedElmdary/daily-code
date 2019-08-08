@@ -41,8 +41,27 @@ ul {
   bottom: 0;
   right: 0;
 
+  &.active-sidenav {
+    > aside {
+      transform: translate3d(0, 0, 0) !important;
+    }
+    > main {
+      padding-left: 24rem !important;
+    }
+    &-mobile {
+      > aside {
+        transform: translate3d(0, 0, 0) !important;
+        + .sidenav-cover {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   /* start sidebar code */
   > aside {
+    z-index: 9999;
     @include sidenav;
   }
   /* end sidebar code */
@@ -50,7 +69,8 @@ ul {
   /* start content code */
   > main {
     // @include main;
-    padding-left: 24rem;
+    padding-left: 0;
+    transition: padding-left $duration linear;
     height: 100vh;
     background-color: $white;
     height: 100vh;
@@ -153,11 +173,20 @@ ul {
         > div:nth-of-type(2) {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          flex-wrap: wrap;
+          align-items: stretch;
           > div {
             flex-basis: 25%;
             padding: 0 1.5rem;
+            margin-bottom: 3rem;
+            @media (max-width: 991px) {
+              flex-basis: calc(100% / 3);
+            }
+            @media (max-width: 768px) {
+              flex-basis: 50%;
+            }
             > div {
+              height: 100%;
               box-shadow: $shadow;
               padding: 3rem 2rem;
               background-color: #77d776;
@@ -233,6 +262,13 @@ ul {
 
     #charts-section {
       @include charts;
+      @media (max-width: 991px) {
+        display: block;
+        > .card {
+          margin-bottom: 3rem;
+          text-align: center;
+        }
+      }
     }
 
     #table {

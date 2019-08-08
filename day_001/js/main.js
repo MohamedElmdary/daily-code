@@ -55,11 +55,68 @@ function dropDownList() {
   );
 }
 
+const requestTimeOut = cb => setTimeout(cb, 350);
+
+function navBar() {
+  const { innerWidth } = window;
+  const dashboard = document.getElementById('dashboard');
+  if (innerWidth > 1350) {
+    dashboard.classList.remove('active-sidenav-mobile');
+    dashboard.classList.add('active-sidenav');
+  } else {
+    dashboard.classList.remove('active-sidenav');
+  }
+}
+
 function main() {
+  navBar();
   sidenav();
   dropDownList();
-  Circle('cirlce-chart');
-  chart('canvas-chart');
+  requestTimeOut(() => chart('canvas-chart'));
+  requestTimeOut(() => Circle('cirlce-chart'));
+
+  document.querySelector(
+    '#content > nav ul > li:last-of-type'
+  ).onclick = function() {
+    const dashboard = document.getElementById('dashboard');
+    if (
+      dashboard.classList.contains('active-sidenav') ||
+      dashboard.classList.contains('active-sidenav-mobile')
+    ) {
+      dashboard.classList = '';
+    } else {
+      const { innerWidth } = window;
+      if (innerWidth < 1350) {
+        dashboard.classList.add('active-sidenav-mobile');
+      } else {
+        dashboard.classList.toggle('active-sidenav');
+      }
+    }
+  };
+
+  document.querySelector('.sidenav-cover').onclick = function() {
+    const dashboard = document.getElementById('dashboard');
+    dashboard.classList = '';
+  };
+
+  Array.from(document.querySelectorAll('aside ul > li')).forEach(li => {
+    const dashboard = document.getElementById('dashboard');
+    li.onclick = function() {
+      li.classList.add('active');
+      siblings(li, function(el) {
+        el.classList.remove('active');
+        dashboard.classList.remove('active-sidenav-mobile');
+      });
+    };
+  });
+
+  window.addEventListener(
+    'resize',
+    function() {
+      navBar();
+    },
+    false
+  );
 }
 
 window.onload = main;

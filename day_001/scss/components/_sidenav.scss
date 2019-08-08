@@ -11,7 +11,7 @@
   transition: transform $duration linear;
   padding-top: 5rem;
   padding-bottom: 10rem;
-  // transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 
   overflow-x: hidden;
   overflow-y: auto;
@@ -66,7 +66,7 @@
       li {
         padding: 1.5rem;
         border-radius: 3rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         cursor: pointer;
         display: flex;
         position: relative;
@@ -94,6 +94,9 @@
         }
 
         .close-circle {
+          @media (max-width: 1350px) {
+            display: none !important;
+          }
           transition: opacity $duration linear;
           visibility: hidden;
           opacity: 0;
@@ -179,5 +182,18 @@
       color: $dark-white;
       font-size: 1.2rem;
     }
+  }
+
+  + .sidenav-cover {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(#333, 0.7);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $duration linear, visibility $duration linear;
   }
 }

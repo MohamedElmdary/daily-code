@@ -1,11 +1,14 @@
 function chart(id) {
-  //   const canvas = document.getElementById(id);
-  const canvas = document.querySelector('canvas');
+  const canvas = document.getElementById(id);
+  // const canvas = document.querySelector('canvas');
 
-  const { offsetHeight, offsetWidth } = canvas.parentElement;
+  const parent = canvas.parentElement;
+  const { offsetHeight, offsetWidth } = parent;
   canvas.height = offsetHeight;
-  canvas.width = offsetWidth;
+  canvas.width = 500;
   const c = canvas.getContext('2d');
+
+  c.clearRect(0, 0, offsetHeight, offsetWidth);
 
   for (let i = 15, x = 0; x < 5; i += 60, x++) {
     c.beginPath();
