@@ -15,21 +15,7 @@
 
   overflow-x: hidden;
   overflow-y: auto;
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-    border-radius: 15px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $white;
-    border-radius: 2em;
-    visibility: hidden;
-  }
-
-  &:hover {
-    &::-webkit-scrollbar-thumb {
-      visibility: visible;
-    }
-  }
+  @include nicescroll;
 
   > * {
     direction: ltr;

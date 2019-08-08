@@ -7,3 +7,21 @@ $notification: salmon;
 $shadow: 0 0 17px 0 rgba(51, 51, 51, 0.1);
 
 $break-points: ();
+
+@mixin nicescroll($color: $white) {
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 2em;
+    visibility: hidden;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      visibility: visible;
+    }
+  }
+}

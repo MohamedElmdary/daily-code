@@ -1,0 +1,49 @@
+.drop-down {
+  position: relative;
+  > p {
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(#333, 0.03);
+    border-radius: 1.5rem;
+    i {
+      margin-left: 0.3rem;
+      position: relative;
+      top: -1px;
+      color: #aaa;
+    }
+  }
+
+  [id^='drop-down-'] {
+    @include nicescroll(#ccc);
+    z-index: 99;
+    position: absolute;
+    border-radius: 1px;
+    top: 26px;
+    right: 0;
+    transform: translateY(10px);
+    padding: 0.5rem 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.2s linear, opacity 0.2s linear,
+      visibility 0.2s linear;
+    max-height: 270px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    ul li {
+      cursor: pointer;
+      padding: 1.8rem 0;
+      width: 20rem;
+      font-size: 1.4rem;
+      text-align: center;
+      &.active,
+      &:hover {
+        background-color: rgba(#333, 0.07);
+      }
+    }
+    &.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

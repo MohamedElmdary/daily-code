@@ -108,31 +108,98 @@
                     <p>Fans Num</p>
                     <p>Female Fans</p>
                   </div>
-                  <div class="drop-down">
-                    later
+                  <div class="drop-down" data-drop="drop-down-0">
+                    <p>
+                      <span class="active-item">Last 90 days</span>
+                      <i class="fas fa-sort-down"></i>
+                    </p>
+                    <div id="drop-down-0" class="card">
+                      <ul>
+                        <% durations.forEach((d, i, ds) => { %>
+                        <li class="<%= i === 1 ? 'active' : '' %>">
+                          <%= ds[ds.length - i - 1] %>
+                        </li>
+                        <% }) %>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </header>
             </div>
             <div class="card">
               <header>
-                <h5>Fans Increase</h5>
-                <div class="drop-down">
-                  later
+                <h5>Income</h5>
+                <div class="drop-down" data-drop="drop-down-1">
+                  <p>
+                    <span class="active-item">All time</span>
+                    <i class="fas fa-sort-down"></i>
+                  </p>
+                  <div id="drop-down-1" class="card">
+                    <ul>
+                      <% durations.forEach((d, i, ds) => { %>
+                      <li class="<%= i === 0 ? 'active' : '' %>">
+                        <%= ds[ds.length - i - 1] %>
+                      </li>
+                      <% }) %>
+                    </ul>
+                  </div>
                 </div>
               </header>
+              <div>
+                <div>
+                  <canvas id="cirlce-chart" height="250" width="250"></canvas>
+                  <p>$15392 <span>Income</span></p>
+                </div>
+              </div>
+              <div>
+                <% incomes.forEach(income => { %>
+                <div>
+                  <p><%= income.name %></p>
+                  <p><%= (income.value * 100 / 15392).toFixed(1) %>%</p>
+                  <p>$<%= income.value%></p>
+                </div>
+                <% })%>
+              </div>
             </div>
           </div>
           <!-- end charts section -->
           <!-- start table -->
-          <div class="table">
+          <div id="table">
             <div class="card">
               <header>
                 <h5>Fans Increase</h5>
-                <div class="drop-down">
-                  later
+                <div class="drop-down" data-drop="drop-down-2">
+                  <p>
+                    <span class="active-item">Last 30 days</span>
+                    <i class="fas fa-sort-down"></i>
+                  </p>
+                  <div id="drop-down-2" class="card">
+                    <ul>
+                      <% durations.forEach((d, i, ds) => { %>
+                      <li class="<%= i === 2 ? 'active' : '' %>">
+                        <%= ds[ds.length - i - 1] %>
+                      </li>
+                      <% }) %>
+                    </ul>
+                  </div>
                 </div>
               </header>
+              <div class="table">
+                <div class="table-header">
+                  <% tableHeaders.forEach(head => { %>
+                  <div><%= head %></div>
+                  <% })%>
+                </div>
+                <% [...(await users()), ...(await users()), ...(await users()),
+                ...(await users()), ...(await users())].forEach((user, i) => {
+                %>
+                <div class="table-row">
+                  <% tableHeaders.forEach(head => { %>
+                  <div><%= head === "id" ? i + 1 : user[head] %></div>
+                  <% })%>
+                </div>
+                <% }) %>
+              </div>
             </div>
           </div>
           <!-- end table -->
@@ -141,6 +208,7 @@
     </section>
     <script src="https://kit.fontawesome.com/1de73eac06.js"></script>
     <script src="./js/sibling.js"></script>
+    <script src="./js/circle.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
