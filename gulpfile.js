@@ -5,7 +5,7 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 
 gulp.task('ejs', async () => {
-  const DATA = require(`./${DAY}/data/data.json`);
+  const DATA = require(`./${DAY}/data/data.js`);
   return gulp
     .src(`${DAY}/index.ejs`)
     .pipe(ejs(DATA, { async: true }))
