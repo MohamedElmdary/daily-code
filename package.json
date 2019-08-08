@@ -4,7 +4,8 @@
   "description": "daily code projects",
   "scripts": {
     "start": "cd ./dist && lite-server",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "build": "gulp build"
   },
   "main": "index.js",
   "repository": "https://github.com/MohamedElmdary/daily-code",

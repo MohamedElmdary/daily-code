@@ -15,7 +15,7 @@ gulp.task('ejs', async () => {
 
 gulp.task('sass', async () => {
   return gulp
-    .src(`${DAY}/scss/style.scss`)
+    .src(`${DAY}/scss/**/*.*`)
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({ extname: '.css' }))
     .pipe(gulp.dest('dist/css'));
@@ -28,3 +28,5 @@ gulp.task('js', async () => {
 gulp.task('watch', async () => {
   return gulp.watch(`${DAY}/**/*.*`, gulp.series('ejs', 'sass', 'js'));
 });
+
+gulp.task('build', gulp.series('ejs', 'sass', 'js'));
