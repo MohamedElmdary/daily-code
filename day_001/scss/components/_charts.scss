@@ -80,7 +80,6 @@
     @include nicescroll;
     > header {
       width: 335px;
-      display: inline-block;
     }
     > div:first-of-type {
       width: 335px;
@@ -89,10 +88,6 @@
       > div {
         display: inline-block;
         position: relative;
-        // min-height: 250px;
-        // min-width: 250px;
-        // overflow: auto;
-        // @include nicescroll;
         > p {
           position: absolute;
           top: 50%;
