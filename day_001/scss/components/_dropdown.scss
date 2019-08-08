@@ -1,10 +1,15 @@
 .drop-down {
   position: relative;
+  display: inline-block;
+  @media (max-width: 425px) {
+    text-align: right;
+  }
   > p {
     cursor: pointer;
     padding: 0.5rem 1.5rem;
     background-color: rgba(#333, 0.03);
     border-radius: 1.5rem;
+    display: inline-block;
     i {
       margin-left: 0.3rem;
       position: relative;

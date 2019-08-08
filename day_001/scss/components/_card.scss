@@ -7,12 +7,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 425px) {
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      display: block;
+      > div {
+        text-align: center;
+        margin: 2rem 0;
+        justify-content: center;
+      }
+    }
     h5 {
       font-size: 2rem;
       font-weight: 900;
     }
     > div {
       display: flex;
+      @media (max-width: 425px) {
+        display: inline-block;
+      }
     }
   }
 }

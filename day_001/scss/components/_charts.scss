@@ -6,8 +6,13 @@
     padding: 1.5rem;
     flex-basis: calc(60% - 3rem);
     header .types {
+      justify-content: center;
       display: flex;
       margin-right: 3rem;
+      @media (max-width: 425px) {
+        margin: 0;
+        margin-bottom: 2rem;
+      }
       > p {
         position: relative;
         line-height: 2.1;
@@ -32,6 +37,7 @@
       }
     }
     #chart-container {
+      max-width: 100%;
       display: inline-block;
       overflow: auto;
       @include nicescroll;
@@ -67,16 +73,26 @@
     }
   }
   > div:last-of-type {
+    text-align: center;
     flex-basis: calc(40% - 3rem);
+    max-width: 100%;
+    overflow: auto;
+    @include nicescroll;
+    > header {
+      width: 335px;
+      display: inline-block;
+    }
     > div:first-of-type {
+      width: 335px;
       text-align: center;
+      display: inline-block;
       > div {
         display: inline-block;
         position: relative;
-        min-height: 250px;
-        min-width: 250px;
-        overflow: auto;
-        @include nicescroll;
+        // min-height: 250px;
+        // min-width: 250px;
+        // overflow: auto;
+        // @include nicescroll;
         > p {
           position: absolute;
           top: 50%;
@@ -97,6 +113,7 @@
     > div:last-of-type {
       display: flex;
       > div {
+        min-width: 110px;
         width: 100%;
         padding: 1.5rem 0.5rem;
         text-align: center;

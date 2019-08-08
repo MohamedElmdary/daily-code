@@ -13,7 +13,7 @@ function chart(id) {
   for (let i = 15, x = 0; x < 5; i += 60, x++) {
     c.beginPath();
     c.moveTo(50, offsetHeight - i - 35);
-    c.lineTo(offsetWidth - 30, offsetHeight - i - 35);
+    c.lineTo(500, offsetHeight - i - 35);
     c.lineWidth = 0.5;
     c.strokeStyle = 'rgba(64, 64, 64, 0.5)';
     c.stroke();
