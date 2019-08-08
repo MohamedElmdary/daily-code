@@ -1,0 +1,8 @@
+@mixin main {
+  padding-left: 24rem;
+  height: 100vh;
+  background-color: $white;
+  #content {
+    padding: 4rem 4rem 0;
+  }
+}

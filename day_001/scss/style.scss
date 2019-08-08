@@ -2,6 +2,8 @@
 
 @import './abstract';
 @import './components/sidenav';
+@import './components/main';
+@import './components/card';
 
 *,
 *::after,
@@ -41,9 +43,224 @@ ul {
 
   /* start content code */
   > main {
+    // @include main;
     padding-left: 24rem;
     height: 100vh;
     background-color: $white;
+
+    #content {
+      padding: 4rem 4rem 0;
+
+      nav {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 3rem;
+        ul {
+          display: flex;
+          li {
+            margin: 0 0.7rem;
+            height: 3.5rem;
+            width: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            cursor: pointer;
+            color: #aaa;
+            transition: background-color $duration linear,
+              color $duration linear;
+            position: relative;
+            i {
+              font-size: 1.7rem;
+            }
+            .notification {
+              height: 5px;
+              width: 5px;
+              border-radius: 50%;
+              background-color: $notification;
+              position: absolute;
+              top: 6px;
+              right: 8px;
+              transition: background-color $duration linear;
+            }
+            &:hover {
+              background-color: lighten($sidenav-bg, 7);
+              color: $white;
+              .notification {
+                background-color: $white !important;
+              }
+            }
+          }
+        }
+      }
+
+      > div:first-of-type {
+        margin-bottom: 3rem;
+        > div:nth-of-type(1) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 3rem;
+          h2 {
+            font-weight: 900;
+            font-size: 2.7rem;
+          }
+          ul {
+            display: flex;
+            li {
+              margin: 0 1rem;
+              cursor: pointer;
+              font-weight: 700;
+              transition: color $duration linear;
+              color: lighten($main-dark, 20);
+              font-size: 1.3rem;
+              position: relative;
+              padding-bottom: 10px;
+              &::after {
+                transform: rotateY(90deg);
+                transition: transform $duration linear;
+                position: absolute;
+                bottom: 0;
+                left: calc(50% - 1.5rem);
+                content: '';
+                background-color: $sidenav-bg;
+                border-radius: 5px;
+                height: 3px;
+                width: 3rem;
+              }
+              &:hover,
+              &.active {
+                color: $sidenav-bg;
+                &::after {
+                  transform: rotateY(0);
+                }
+              }
+            }
+          }
+        }
+
+        > div:nth-of-type(2) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          > div {
+            flex-basis: 25%;
+            padding: 0 1.5rem;
+            > div {
+              box-shadow: $shadow;
+              padding: 3rem 2rem;
+              background-color: #77d776;
+              border-radius: 1rem;
+              color: white;
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+              z-index: 1;
+              &::after,
+              &::before {
+                z-index: -1;
+                content: '';
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                position: absolute;
+                top: 2px;
+                left: -23px;
+                background: rgba($white, 0.2);
+              }
+              &::before {
+                top: -16px;
+                left: 1px;
+              }
+              > div:first-of-type {
+                h5 {
+                  font-size: 1.6rem;
+                  color: $white;
+                  text-transform: capitalize;
+                  margin-bottom: 2rem;
+                }
+                p {
+                  span {
+                    font-weight: 700;
+                    font-size: 2.5rem;
+                    letter-spacing: 2px;
+                  }
+                  i {
+                    font-size: 1.6rem;
+                    margin-left: 0.7rem;
+                    transform: translateX(-0.5rem);
+                  }
+                }
+              }
+              > div:last-of-type {
+                i {
+                  height: 70px;
+                  width: 70px;
+                  border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-color: rgba($white, 0.3);
+                  font-size: 3rem;
+                }
+              }
+            }
+            &:nth-of-type(2) > div {
+              background-color: #919eff;
+            }
+            &:nth-of-type(3) > div {
+              background-color: #ff86ec;
+            }
+            &:nth-of-type(4) > div {
+              background-color: #feb177;
+            }
+          }
+        }
+      }
+    }
+
+    #charts-section {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 3rem;
+      > div {
+        padding: 15px;
+        flex-basis: calc(60% - 3rem);
+        header .types {
+          display: flex;
+          margin-right: 3rem;
+          > p {
+            position: relative;
+            font-size: 1.2rem;
+            color: lighten($main-dark, 20);
+            &::before {
+              position: absolute;
+              content: '';
+              height: 6px;
+              width: 6px;
+              border-radius: 50%;
+              background-color: #feb177;
+              top: calc(50% - 3px);
+              left: -1.5rem;
+            }
+            &:last-of-type {
+              margin-left: 4rem;
+              &::before {
+                background-color: #919eff;
+              }
+            }
+          }
+        }
+      }
+      > div:last-of-type {
+        flex-basis: calc(40% - 3rem);
+      }
+    }
+
+    .table {
+      padding: 0 15px;
+    }
   }
   /* end content code */
 }

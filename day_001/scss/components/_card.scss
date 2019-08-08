@@ -1,0 +1,17 @@
+.card {
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+  box-shadow: $shadow;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h5 {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+    > div {
+      display: flex;
+    }
+  }
+}

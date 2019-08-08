@@ -9,6 +9,7 @@
   </head>
   <body>
     <section id="dashboard">
+      <!-- start side navbar -->
       <aside>
         <div class="profile">
           <h1>FAN Analysis</h1>
@@ -47,11 +48,99 @@
           </div>
         </div>
       </aside>
+      <!-- end side navbar -->
+
       <main>
-        content
+        <section id="content">
+          <!-- start navbar -->
+          <nav>
+            <ul>
+              <li><i class="fas fa-search"></i></li>
+              <li>
+                <i class="far fa-bell"></i>
+                <span class="notification"></span>
+              </li>
+              <li><i class="fas fa-bars"></i></li>
+            </ul>
+          </nav>
+          <!-- end navbar -->
+
+          <div>
+            <!-- start Overall section -->
+            <div>
+              <h2>Overall Data</h2>
+              <ul>
+                <% durations.forEach((duration, i) => { %>
+                <li class="<%= i === 1 ? 'active' : '' %>"><%= duration %></li>
+                <% })%>
+              </ul>
+            </div>
+            <!-- end Overall section -->
+
+            <!-- start cards section -->
+            <div>
+              <% cards.forEach(card => { %>
+              <div>
+                <div>
+                  <div>
+                    <h5><%= card.name %></h5>
+                    <p>
+                      <span><%= card.value %></span>
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                    </p>
+                  </div>
+                  <div>
+                    <i class="<%= card.icon %>"></i>
+                  </div>
+                </div>
+              </div>
+              <% })%>
+            </div>
+            <!-- end cards section -->
+          </div>
+          <!-- start charts section -->
+          <div id="charts-section">
+            <div class="card">
+              <header>
+                <h5>Fans Increase</h5>
+                <div>
+                  <div class="types">
+                    <p>Fans Num</p>
+                    <p>Female Fans</p>
+                  </div>
+                  <div class="drop-down">
+                    later
+                  </div>
+                </div>
+              </header>
+            </div>
+            <div class="card">
+              <header>
+                <h5>Fans Increase</h5>
+                <div class="drop-down">
+                  later
+                </div>
+              </header>
+            </div>
+          </div>
+          <!-- end charts section -->
+          <!-- start table -->
+          <div class="table">
+            <div class="card">
+              <header>
+                <h5>Fans Increase</h5>
+                <div class="drop-down">
+                  later
+                </div>
+              </header>
+            </div>
+          </div>
+          <!-- end table -->
+        </section>
       </main>
     </section>
     <script src="https://kit.fontawesome.com/1de73eac06.js"></script>
+    <script src="./js/sibling.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
