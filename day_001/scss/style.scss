@@ -331,11 +331,33 @@ ul {
     }
 
     #table {
+      margin-bottom: 5rem;
       padding: 0 15px;
       header {
         margin-bottom: 3rem;
       }
       .table {
+        overflow: auto;
+        max-height: 500px;
+        @include nicescroll($sidenav-bg);
+        > div {
+          padding: 1.5rem 0;
+          display: flex;
+          border-bottom: 1px solid rgba(lighten(#333, 5), 0.1);
+          align-items: center;
+          min-width: 900px;
+          > div {
+            flex-basis: 100%;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: capitalize;
+          }
+        }
+        .table-row > div {
+          font-weight: 400;
+          font-size: 1.15rem;
+        }
       }
     }
   }
