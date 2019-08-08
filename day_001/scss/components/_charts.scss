@@ -1,0 +1,132 @@
+@mixin charts {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+  > div {
+    padding: 1.5rem;
+    flex-basis: calc(60% - 3rem);
+    header .types {
+      display: flex;
+      margin-right: 3rem;
+      > p {
+        position: relative;
+        line-height: 2.1;
+        font-size: 1.2rem;
+        color: lighten($main-dark, 20);
+        &::before {
+          position: absolute;
+          content: '';
+          height: 6px;
+          width: 6px;
+          border-radius: 50%;
+          background-color: #feb177;
+          top: calc(50% - 3px);
+          left: -1.5rem;
+        }
+        &:last-of-type {
+          margin-left: 4rem;
+          &::before {
+            background-color: #919eff;
+          }
+        }
+      }
+    }
+    #chart-container {
+      overflow: auto;
+      @include nicescroll;
+      height: 350px;
+      position: relative;
+      > [class$='-axis'] {
+        position: absolute;
+        display: flex;
+        > p {
+          flex-basis: 100%;
+          text-align: center;
+          color: rgba(64, 64, 64, 0.4);
+          font-size: 1.2rem;
+          font-weight: 700;
+        }
+      }
+      .x-axis {
+        flex-direction: column;
+        height: 300px;
+        top: 52px;
+        left: 13px;
+      }
+      .y-axis {
+        top: calc(100% - 33px);
+        left: 66px;
+        width: 445px;
+      }
+    }
+  }
+  > div:last-of-type {
+    flex-basis: calc(40% - 3rem);
+    > div:first-of-type {
+      text-align: center;
+      > div {
+        display: inline-block;
+        position: relative;
+        > p {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 700;
+          font-size: 2.7rem;
+          > span {
+            font-size: 1.8rem;
+            color: lighten(#333, 20);
+            font-weight: 400;
+            display: block;
+          }
+        }
+      }
+    }
+
+    > div:last-of-type {
+      display: flex;
+      > div {
+        width: 100%;
+        padding: 1.5rem 0.5rem;
+        text-align: center;
+        > p {
+          &:first-of-type {
+            display: inline-block;
+            color: lighten(#333, 20);
+            text-transform: capitalize;
+            font-size: 1.6rem;
+            padding-left: 0.6rem;
+            position: relative;
+            &::before {
+              position: absolute;
+              content: '';
+              top: calc(50% - 5px);
+              left: -10px;
+              height: 10px;
+              width: 10px;
+              border-radius: 3px;
+              background-color: dodgerblue;
+              box-shadow: $shadow;
+            }
+          }
+
+          &:nth-of-type(2) {
+            font-weight: 700;
+            font-size: 2.5rem;
+          }
+          &:nth-of-type(3) {
+            font-size: 1.4rem;
+            color: lighten(#333, 20);
+          }
+        }
+        &:nth-of-type(2) p:first-of-type::before {
+          background-color: #feb177;
+        }
+        &:nth-of-type(3) p:first-of-type::before {
+          background-color: #77d776;
+        }
+      }
+    }
+  }
+}

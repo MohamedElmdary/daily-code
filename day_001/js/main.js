@@ -59,6 +59,7 @@ function main() {
   sidenav();
   dropDownList();
   Circle('cirlce-chart');
+  chart('canvas-chart');
 }
 
 window.onload = main;
